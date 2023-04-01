@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Meta from "@/components/Meta";
 
 function post({ post }) {
   // using next router to get data from routes
@@ -8,6 +9,7 @@ function post({ post }) {
 
   return (
     <>
+      <Meta title={post.title} />
       <Link href="/">Go back</Link>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
