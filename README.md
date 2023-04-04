@@ -9,6 +9,3 @@ What I learned
 
 (3) Custom dynamic Meta Components
 
-<!-- get Static Props -->
-
-I was unable to use getStaticProps due to an error

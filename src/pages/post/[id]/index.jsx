@@ -19,21 +19,9 @@ function post({ post }) {
 }
 // using the  data fetching method provided by next js for pages
 // getServerSideProps
-export const getServerSideProps = async (context) => {
-  const res = await fetch(`https://dummyjson.com/post/${context.params.id}`);
 
-  const post = await res.json();
-
-  return {
-    props: {
-      post,
-    },
-  };
-};
-
-// Using a combination of getStaticProps and getServerSideProps
-// export const getStaticProps = async (context) => {
-//   const res = await fetch(`https://dummyjson.com/posts/${context.params.id}`);
+// export const getServerSideProps = async (context) => {
+//   const res = await fetch(`https://dummyjson.com/post/`);
 
 //   const post = await res.json();
 
@@ -44,18 +32,32 @@ export const getServerSideProps = async (context) => {
 //   };
 // };
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`https://dummyjson.com/posts`);
+// Using a combination of getStaticProps and getServerSideProps
 
-//   const post = await res.json();
+export const getStaticProps = async (context) => {
+  const res = await fetch(`https://dummyjson.com/posts/${context.params.id}`);
 
-//   const ids = post.map((post) => post.id);
-//   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
+  const post = await res.json();
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
+  return {
+    props: {
+      post,
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const res = await fetch(`https://dummyjson.com/posts`);
+
+  const post = await res.json();
+
+  const ids = await post.posts.map((post) => post.id);
+  const paths = ids.map((id) => ({ params: { id: id.toString() } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
 export default post;
