@@ -16,7 +16,7 @@ export default function Home({ articles }) {
 // this functions can be added either above or below the page
 // fetchinng data using the  getStaticProps method
 export const getStaticProps = async () => {
-  const res = await fetch(`https://dummyjson.com/posts?limit=6`);
+  const res = await fetch(`https://dummyjson.com/posts?limit=8`);
   const articles = await res.json();
 
   return {

@@ -18,17 +18,19 @@
   transition: transform 200ms;
 }
 
-.card h2 {
-  font-weight: 600;
+.card h1 {
+  font-weight: 800;
   margin-bottom: 0.7rem;
+  font-family: var(--font-mono);
 }
 
 .card p {
   margin: 0;
   opacity: 0.6;
-  font-size: 0.9rem;
+  font-size: 13px;
   line-height: 1.5;
   max-width: 30ch;
+  font-family: var(--font-mono);
 }
 
 .center {

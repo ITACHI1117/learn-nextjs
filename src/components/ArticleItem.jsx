@@ -5,7 +5,7 @@ function ArticleItem({ post }) {
   return (
     <Link href="/post/[id]" as={`/post/${post.id}`}>
       <div className={articleStyles.card}>
-        <h3>{post.title} &rarr;</h3>
+        <h1>{post.title} &rarr;</h1>
         <p>
           {post.body.length > 100 ? `${post.body.slice(0, 100)}...` : post.body}
         </p>
